@@ -12,7 +12,7 @@ enum CellState {
 
 /// Represents the Game of Life grid.
 pub struct GameOfLife {
-    grid: Vec<Vec<CellState>>, // Current state
+    grid: Vec<Vec<CellState>>,      // Current state
     prev_grid: Vec<Vec<CellState>>, // Previous state
 }
 
@@ -39,9 +39,13 @@ impl GameOfLife {
                 seed ^= seed << 13;
                 seed ^= seed >> 7;
                 seed ^= seed << 17;
-                
-                let chance = 15 ; // percentage of chance to being alive
-                *cell = if seed % 100 < chance { CellState::Alive } else { CellState::Dead };
+
+                let chance = 15; // percentage of chance to being alive
+                *cell = if seed % 100 < chance {
+                    CellState::Alive
+                } else {
+                    CellState::Dead
+                };
             }
         }
         self
@@ -50,9 +54,14 @@ impl GameOfLife {
     /// Counts the number of alive neighbors for a given cell.
     fn count_alive_neighbors(&self, row: usize, col: usize) -> u8 {
         let directions = [
-            (-1, -1), (-1, 0), (-1, 1),
-            (0, -1),         (0, 1),
-            (1, -1),  (1, 0),  (1, 1),
+            (-1, -1),
+            (-1, 0),
+            (-1, 1),
+            (0, -1),
+            (0, 1),
+            (1, -1),
+            (1, 0),
+            (1, 1),
         ];
 
         let mut count = 0;
@@ -122,14 +131,41 @@ impl GameOfLife {
 
         let gun_pattern = [
             (x, y + 24),
-            (x + 1, y + 22), (x + 1, y + 24),
-            (x + 2, y + 12), (x + 2, y + 13), (x + 2, y + 20), (x + 2, y + 21), (x + 2, y + 34), (x + 2, y + 35),
-            (x + 3, y + 11), (x + 3, y + 15), (x + 3, y + 20), (x + 3, y + 21), (x + 3, y + 34), (x + 3, y + 35),
-            (x + 4, y), (x + 4, y + 1), (x + 4, y + 10), (x + 4, y + 16), (x + 4, y + 20), (x + 4, y + 21),
-            (x + 5, y), (x + 5, y + 1), (x + 5, y + 10), (x + 5, y + 14), (x + 5, y + 16), (x + 5, y + 17), (x + 5, y + 22), (x + 5, y + 24),
-            (x + 6, y + 10), (x + 6, y + 16), (x + 6, y + 24),
-            (x + 7, y + 11), (x + 7, y + 15),
-            (x + 8, y + 12), (x + 8, y + 13)
+            (x + 1, y + 22),
+            (x + 1, y + 24),
+            (x + 2, y + 12),
+            (x + 2, y + 13),
+            (x + 2, y + 20),
+            (x + 2, y + 21),
+            (x + 2, y + 34),
+            (x + 2, y + 35),
+            (x + 3, y + 11),
+            (x + 3, y + 15),
+            (x + 3, y + 20),
+            (x + 3, y + 21),
+            (x + 3, y + 34),
+            (x + 3, y + 35),
+            (x + 4, y),
+            (x + 4, y + 1),
+            (x + 4, y + 10),
+            (x + 4, y + 16),
+            (x + 4, y + 20),
+            (x + 4, y + 21),
+            (x + 5, y),
+            (x + 5, y + 1),
+            (x + 5, y + 10),
+            (x + 5, y + 14),
+            (x + 5, y + 16),
+            (x + 5, y + 17),
+            (x + 5, y + 22),
+            (x + 5, y + 24),
+            (x + 6, y + 10),
+            (x + 6, y + 16),
+            (x + 6, y + 24),
+            (x + 7, y + 11),
+            (x + 7, y + 15),
+            (x + 8, y + 12),
+            (x + 8, y + 13),
         ];
 
         for &(row, col) in &gun_pattern {
