@@ -1,6 +1,6 @@
 # Game of Life in Rust
 
-    A simple implementation of Conway's Game of Life written in Rust. This project provides an interactive simulation of cellular automata using a grid of cells, where each cell is either alive or dead. The grid evolves over time based on a set of rules.
+A simple implementation of Conway's Game of Life written in Rust. This project provides an interactive simulation of cellular automata using a grid of cells, where each cell is either alive or dead. The grid evolves over time based on a set of rules.
 
 This project supports common Game of Life features like random cell initialization and predefined patterns such as the **Gosper Glider Gun**.
 
