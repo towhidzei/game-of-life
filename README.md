@@ -1,0 +1,26 @@
+# Game of Life in Rust
+
+    A simple implementation of Conway's Game of Life written in Rust. This project provides an interactive simulation of cellular automata using a grid of cells, where each cell is either alive or dead. The grid evolves over time based on a set of rules.
+
+This project supports common Game of Life features like random cell initialization and predefined patterns such as the **Gosper Glider Gun**.
+
+## Features
+
+- **Random Initialization**: Initializes the grid with a random distribution of live and dead cells.
+- **Gosper Glider Gun**: A famous pattern that generates a stream of gliders.
+- **Grid Evolution**: Advances the grid according to the rules of Conway's Game of Life.
+- **Terminal Display**: Displays the grid on the terminal with visual updates.
+
+## run
+
+Ensure that you have [Rust](https://www.rust-lang.org/) installed on your system.
+
+and then
+   ```bash
+   git clone https://github.com/yourusername/game-of-life-rust.git
+   cd game-of-life-rust
+   cargo run 
+   #or
+   cargo run -- random
+```
+
