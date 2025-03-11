@@ -27,7 +27,7 @@ impl GameOfLife {
     }
 
     /// Randomly initializes the grid with alive cells (around 3% chance per cell).
-    pub fn randomize(&mut self) -> &mut Self {
+    pub fn randomize(&mut self) {
         let mut seed = SystemTime::now()
             .duration_since(UNIX_EPOCH)
             .unwrap()
@@ -48,7 +48,6 @@ impl GameOfLife {
                 };
             }
         }
-        self
     }
 
     /// Counts the number of alive neighbors for a given cell.
@@ -85,7 +84,7 @@ impl GameOfLife {
     }
 
     /// Advances the game to the next state following Conway's Game of Life rules.
-    pub fn next_generation(&mut self) -> &mut Self {
+    pub fn next_generation(&mut self) {
         let mut new_state = self.grid.clone(); // Create a new grid for the next state
 
         for (i, row) in self.grid.iter().enumerate() {
@@ -101,8 +100,6 @@ impl GameOfLife {
 
         self.prev_grid = self.grid.clone(); // Store the previous state
         self.grid = new_state; // Update the current state
-
-        self
     }
 
     /// Displays the current state of the grid in the terminal.
